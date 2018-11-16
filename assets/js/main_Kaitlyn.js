@@ -92,14 +92,13 @@ function stopCollection(){
 var locationData = {
 			buildingLocation: "", 
 			studySpot: "", 
-			dataCollector: "",
+			dataCollector: "Kaitlyn",	//TODO: update for each person
 		};
 
 		function submitLocationData()
         {
             locationData.buildingLocation = document.getElementById("demo-building").value;
             locationData.studySpot = document.getElementById("form-studySpot").value;
-            locationData.dataCollector = document.getElementById("form-name").value;
             return(locationData);
         }
 
@@ -115,7 +114,7 @@ var locationData = {
 		//button collection
 		//ROWS: date | time | Building | Study Spot | Collector
 		ws.onopen = function() {
-    		ws.send("7d636d3d891b2ae545c6da21831d719b");
+    		ws.send("7d636d3d891b2ae545c6da21831d719b");	
 		};
 		ws.onmessage = function (evt) {
 			var d = new Date();
@@ -126,7 +125,7 @@ var locationData = {
     			alert("Node is offline! Plug it in and try again.")
     		}
     		console.log(evt.data);
-    		tableString = tableString + date + "<br>";
+    		tableString = tableString + "\n" + date + locationData.dataCollector;
     		document.getElementById("ButtonData").innerHTML = tableString;
 		};
 
@@ -156,12 +155,12 @@ var locationData = {
 					var d = new Date();
 					var date = d.toLocaleString();
 					console.log("LightRow: " + collectLightData());
-					soundTable = soundTable + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector + "<br>";
+					soundTable = soundTable + "\n" + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector;
 			        document.getElementById("SoundData").innerHTML = soundTable;
 			    }
 			};
 			
-			xhttp.open("GET", "https://us.wio.seeed.io/v1/node/GroveSoundA0/sound_level?access_token=7d636d3d891b2ae545c6da21831d719b", true);
+			xhttp.open("GET", "https://us.wio.seeed.io/v1/node/GroveSoundA0/sound_level?access_token=7d636d3d891b2ae545c6da21831d719b", true); 
 			xhttp.send();
 			//}, 1000);
 		//console.log("Sound!");
@@ -186,7 +185,7 @@ var locationData = {
 
 					var d = new Date();
 					var date = d.toLocaleString();
-					lightTable = lightTable + lightLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector + "<br>";
+					lightTable = lightTable + "\n" + lightLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector;
 			        document.getElementById("LightData").innerHTML = lightTable;
 			    }
 			};
@@ -199,6 +198,71 @@ var locationData = {
 	};
 
 
+function download_csv(){
+	download_csv_button();
+	download_csv_sound();
+	download_csv_light();
+};
 
+function download_csv_button() {
+    /*var csv = 'Name,Title\n';
+    data.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+    });*/
+
+    var d = new Date();
+    var date = d.toLocaleString();
+    var docName = "button " + date + " tisch_kaitlyn";
+
+    //console.log(docName);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(tableString);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = docName + '.csv';
+    //document.getElementById('container').appendChild(hiddenElement);
+    hiddenElement.click();
+};
+
+
+function download_csv_sound() {
+    /*var csv = 'Name,Title\n';
+    data.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+    });*/
+
+    var d = new Date();
+    var date = d.toLocaleString();
+    var docName = "sound " + date + " tisch_kaitlyn";
+
+    //console.log(docName);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(soundTable);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = docName + '.csv';
+    //document.getElementById('container').appendChild(hiddenElement);
+    hiddenElement.click();
+}
+
+function download_csv_light() {
+    /*var csv = 'Name,Title\n';
+    data.forEach(function(row) {
+            csv += row.join(',');
+            csv += "\n";
+    });*/
+
+    var d = new Date();
+    var date = d.toLocaleString();
+    var docName = "light " + date + " tisch_kaitlyn";
+
+    //console.log(docName);
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(lightTable);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = docName + '.csv';
+    //document.getElementById('container').appendChild(hiddenElement);
+    hiddenElement.click();
+}
 
 

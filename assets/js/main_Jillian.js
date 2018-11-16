@@ -92,14 +92,13 @@ function stopCollection(){
 var locationData = {
 			buildingLocation: "", 
 			studySpot: "", 
-			dataCollector: "",
+			dataCollector: "Jillian",	//TODO: update for each person
 		};
 
 		function submitLocationData()
         {
             locationData.buildingLocation = document.getElementById("demo-building").value;
             locationData.studySpot = document.getElementById("form-studySpot").value;
-            locationData.dataCollector = document.getElementById("form-name").value;
             return(locationData);
         }
 
@@ -115,7 +114,7 @@ var locationData = {
 		//button collection
 		//ROWS: date | time | Building | Study Spot | Collector
 		ws.onopen = function() {
-    		ws.send("ed2c35e6f733635a8b7334f2bb152045");
+    		ws.send("ed2c35e6f733635a8b7334f2bb152045");	//TODO: update for button api
 		};
 		ws.onmessage = function (evt) {
 			var d = new Date();
@@ -126,7 +125,7 @@ var locationData = {
     			alert("Node is offline! Plug it in and try again.")
     		}
     		console.log(evt.data);
-    		tableString = tableString + date + "<br>";
+    		tableString = tableString + "\n" + date + locationData.dataCollector;
     		document.getElementById("ButtonData").innerHTML = tableString;
 		};
 
@@ -156,12 +155,12 @@ var locationData = {
 					var d = new Date();
 					var date = d.toLocaleString();
 					console.log("LightRow: " + collectLightData());
-					soundTable = soundTable + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector + "<br>";
+					soundTable = soundTable + "\n" + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector;
 			        document.getElementById("SoundData").innerHTML = soundTable;
 			    }
 			};
 			
-			xhttp.open("GET", "https://us.wio.seeed.io/v1/node/GroveSoundA0/sound_level?access_token=ed2c35e6f733635a8b7334f2bb152045", true);
+			xhttp.open("GET", "https://us.wio.seeed.io/v1/node/GroveSoundA0/sound_level?access_token=ed2c35e6f733635a8b7334f2bb152045", true); //TODO: update for sound api
 			xhttp.send();
 			//}, 1000);
 		//console.log("Sound!");
@@ -186,12 +185,12 @@ var locationData = {
 
 					var d = new Date();
 					var date = d.toLocaleString();
-					lightTable = lightTable + lightLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector + "<br>";
+					lightTable = lightTable + "\n" + lightLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector;
 			        document.getElementById("LightData").innerHTML = lightTable;
 			    }
 			};
 			
-			xhttp.open("GET", "https://us.wio.seeed.io/v1/node/GroveLuminanceA0/luminance?access_token=afa330caae30386e81322f1ce7fce631", true);
+			xhttp.open("GET", "https://us.wio.seeed.io/v1/node/GroveLuminanceA0/luminance?access_token=afa330caae30386e81322f1ce7fce631", true);	//TODO: update for light api
 			xhttp.send();
 			//}, 1000);
 		//console.log("Light! " + lightTable);

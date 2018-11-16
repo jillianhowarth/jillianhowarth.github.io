@@ -13,6 +13,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -49,10 +50,7 @@
 							</header>
 							<form method="post" action="#">
 							<div class="row gtr-uniform gtr-50">
-								<div class="col-6 col-12-xsmall">
-									<input type="text" name="form-name" id="form-name" value="" placeholder="Name" />
-								</div>
-								<div class="col-6 col-12-xsmall">
+								<div class="col-12">
 									<select name="demo-category" id="demo-building">
 										<option value="">- Building -</option>
 										<option value="Tisch">Tisch</option>
@@ -76,7 +74,22 @@
 						</div>
 					</div>
 				</div>
+				<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<div class="col-6 col-12-medium">
+								<a class="button secondary fit" id="stopCollection" onclick="stopCollection()">Stop Collecting</a>
+							</div>
+						</div>
+						<div class="col-6 col-12-medium imp-medium">
+							<div class="col-6 col-12-medium">
+								<a href="#data" class="button secondary fit scrolly" id="jumpToDownload" onclick="stopCollection()">Jump to Download</a>
+							</div>	
+						</div>
+					</div>
+				</div>
 			</section>
+
 
 		<!-- Two -->
 			<section id="two" class="main style2">
@@ -101,29 +114,66 @@
 							<p id="LightData"></p>
 						</div>
 					</div>
-					<div class="col-12">
-						<a class="button secondary fit" id="stopCollection" onclick="stopCollection()">Stop Collecting</a>
-					</div>
+					
 				</div>
 			</section>
 
 		<!-- Three -->
-			<section id="three" class="main style1 special">
+			<section id="data" class="main style1 special">
 				<div class="container medium">
-					<header class="major">
-						<h2>Saving the Data</h2>
-					</header>
+					<div class="container">
+					<div class="row gtr-150">
+						<div class="col-6 col-12-medium">
+							<div class="col-6 col-12-medium">
+								<header class="major">
+									<h2>Saving the Data</h2>
+								</header>
+							</div>
+						</div>
+						<div class="col-6 col-12-medium imp-medium">
+							<div class="col-6 col-12-medium">
+								<a class="button primary fit" id="download" onclick="download_csv()">Download the Data!</a>
+							</div>	
+						</div>
+					</div>
+				</div>
 					<div class="container medium">
-						<p class="align-left">Follow these steps to save your data so we can uploading to ArcGIS as easily as possible. Top stop data collection, press the <code>Stop Collecting</code> button at the bottom of the data.</p>
+						<p class="align-left">Follow these steps to save your data so we can uploading to ArcGIS as easily as possible. To stop data collection, press the <code>Stop Collecting</code> button above the data. Once the data collection is stopped, you can click <code>Download the Data</code> to start the file downloads. Three separate .csv files should download (corresponding with the three types of data). After the files download, it's a good idea to open them to double check everything worked as expected.</p>
+						
+						<header class="major">
+							<h2>Troubleshooting</h2>
+						</header>
+						
+						<p class="align-left"> <strong>Why does the data look weird online?</strong>
+						</br>
+						JavaScript is annoying so I'm not printing line breaks. The data in the .csv files should be in columns and rows as expected. If this isn't the case, reach out to Jillian because somethings wrong.
+						</p>
+
+						<p class="align-left"> <strong>Why don't I see any output?</strong>
+						<br>
+						If you've clicked <code>Start Collecting</code> and don't see any output, wait 5 minutes. The data does not start outputting right away. If after 5 minutes there's still no output on the page, reach out to Jillian because somethings wrong.
+						</p>
+
+						<p class="align-left"> <strong>Only one data file downloaded. I thought there were supposed to be three?</strong>
+						That's correct! <i>There should be three files.</i> If you're only seeing one, it's probably because your browser thinks the website is spamming you. Chrome has an alert asking if you want to allow multiple downloads. If you're not using Chrome, I don't know - you're on your own to figure it out. 
+						<br>
+
+						<p class="align-left"> <strong>Can I test the nodes before beginning official data collection?</strong>
+						<br>
+						Absolutely! Because the data is saved locally, all you have to do is reload the website to remove all previous data. So, feel free to run a test session for 10 or 15 minutes then download the data. Hit <code>command + r</code> anytime you want to restart. <i>You cannot recover previous data if you reload the page.</i>
+
+						<p class="align-left"> <strong>Is it possible to save the data manually?</strong>
+						</br>
+						So like technically yes but it's a lot of work. If you really really want to, here's how you can manually save the data: <br>
 						<ol>
-							<li class="align-left">Open a new document in the Sublime Text Editor*.</li>
+							<li class="align-left">Open a new document in the Sublime Text Editor. If you don't have Sublime on your computer, you can <a href="https://www.sublimetext.com/">download it here</a>. It's a free software so if you see the "Upgrade" pop up, just ignore it.</li>
 							<li class="align-left">Highlight all the data in the "Distraction Button Data" column. Make sure only this data is highlighted, and not the Light or Sensor data. </li>
-							<li class="align-left">Paste the data into the *new* Sublime document. Each row should paste as one line (even if it runs over to multiple lines on the website).</li>
+							<li class="align-left">Paste the data into the *new* Sublime document. If each row is not on it's own line, you're going to need to manually divide them. Have fun. </li>
 							<li class="align-left">Save the document as a .csv file. To set the file type, rename the document and add .csv to the end (you can't manually select the file type in Sublime and instead have to type it).</li>
 							<li class="align-left">Repeat this process with the Light data an Sensor data, saving them each to a new document.</li>
 							<li class="align-left">You should now be able to open the .csv files in Excel and each piece of data will be in its own cell.</li>
 						</ol>
-						<p class="align-left">*If you don't have Sublime on your computer, you can <a href="https://www.sublimetext.com/">download it here</a>. It's a free software so if you see the "Upgrade" pop up, just ignore it.</p>
+						</p>
 					</div>
 				</div>
 				<div class="container medium">
