@@ -93,12 +93,17 @@ var locationData = {
 			buildingLocation: "", 
 			studySpot: "", 
 			dataCollector: "Erin",	//TODO: update for each person
+			latitude: "",
+			longitude: "",
 		};
 
 		function submitLocationData()
         {
             locationData.buildingLocation = document.getElementById("demo-building").value;
             locationData.studySpot = document.getElementById("form-studySpot").value;
+            locationData.latitude = document.getElementById("form-lat").value;
+            locationData.longitude = document.getElementById("form-lon").value;
+
             return(locationData);
         }
 
@@ -155,7 +160,7 @@ var locationData = {
 					var d = new Date();
 					var date = d.toLocaleString();
 					console.log("LightRow: " + collectLightData());
-					soundTable = soundTable + "\n" + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector;
+					soundTable = soundTable + "\n" + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.latitude + ", " + locationData.longitude + ", " + locationData.dataCollector;
 			        document.getElementById("SoundData").innerHTML = soundTable;
 			    }
 			};

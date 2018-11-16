@@ -93,12 +93,17 @@ var locationData = {
 			buildingLocation: "", 
 			studySpot: "", 
 			dataCollector: "Jillian",	//TODO: update for each person
+			latitude: "",
+			longitude: "",
 		};
 
 		function submitLocationData()
         {
             locationData.buildingLocation = document.getElementById("demo-building").value;
             locationData.studySpot = document.getElementById("form-studySpot").value;
+            locationData.latitude = document.getElementById("form-lat").value;
+            locationData.longitude = document.getElementById("form-lon").value;
+
             return(locationData);
         }
 
@@ -112,7 +117,7 @@ var locationData = {
 		var ws = new WebSocket('wss://us.wio.seeed.io/v1/node/event');
 		
 		//button collection
-		//ROWS: date | time | Building | Study Spot | Collector
+		//ROWS: date | time | Building | Study Spot | Latitude | Longitude | Collector
 		ws.onopen = function() {
     		ws.send("ed2c35e6f733635a8b7334f2bb152045");	//TODO: update for button api
 		};
@@ -135,7 +140,7 @@ var locationData = {
 
 
 		//sound and light collection
-		//ROWS: sound level | light level | date | time | Building | Study Spot | Collector
+		//ROWS: sound level | light level | date | time | Building | Study Spot | Latitude | Longitude | Collector
 		var soundTable = "";
 
 
@@ -155,7 +160,7 @@ var locationData = {
 					var d = new Date();
 					var date = d.toLocaleString();
 					console.log("LightRow: " + collectLightData());
-					soundTable = soundTable + "\n" + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector;
+					soundTable = soundTable + "\n" + soundLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.latitude + ", " + locationData.longitude + ", " + locationData.dataCollector;
 			        document.getElementById("SoundData").innerHTML = soundTable;
 			    }
 			};
@@ -185,7 +190,7 @@ var locationData = {
 
 					var d = new Date();
 					var date = d.toLocaleString();
-					lightTable = lightTable + "\n" + lightLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.dataCollector;
+					lightTable = lightTable + "\n" + lightLvl + ", " + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.latitude + ", " + locationData.longitude + ", " + locationData.dataCollector;
 			        document.getElementById("LightData").innerHTML = lightTable;
 			    }
 			};
