@@ -87,6 +87,7 @@ function stopCollection(){
 	clearInterval(myVar);
 }
 
+var lat = "null";
 
 //building data
 var locationData = {
@@ -130,7 +131,7 @@ var locationData = {
     			alert("Node is offline! Plug it in and try again.")
     		}
     		console.log(evt.data);
-    		tableString = tableString + "\n" + date + locationData.dataCollector;
+    		tableString = tableString + "\n" + date + ", " + locationData.buildingLocation + ", " + locationData.studySpot + ", " + locationData.latitude + ", " + locationData.longitude + ", " + locationData.dataCollector;
     		document.getElementById("ButtonData").innerHTML = tableString;
 		};
 
