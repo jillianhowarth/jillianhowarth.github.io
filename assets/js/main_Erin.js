@@ -78,7 +78,7 @@ function startDataCollection() {
 			}
 		}, 1000);*/
 
-	myVar = setInterval(myTimer, 1000);
+	myVar = setInterval(myTimer, 60000);
 }
 
 
@@ -218,7 +218,7 @@ function download_csv_button() {
 
     var d = new Date();
     var date = d.toLocaleString();
-    var docName = "button " + date + " tisch_erin";
+    var docName = "button_" + date + "_" + locationData.buildingLocation + "_" + locationData.dataCollector;
 
     //console.log(docName);
     var hiddenElement = document.createElement('a');
@@ -239,7 +239,7 @@ function download_csv_sound() {
 
     var d = new Date();
     var date = d.toLocaleString();
-    var docName = "sound " + date + " tisch_erin";
+    var docName = "sound_" + date + "_" + locationData.buildingLocation + "_" + locationData.dataCollector;
 
     //console.log(docName);
     var hiddenElement = document.createElement('a');
@@ -259,7 +259,7 @@ function download_csv_light() {
 
     var d = new Date();
     var date = d.toLocaleString();
-    var docName = "light " + date + " tisch_erin";
+    var docName = "light_" + date + "_" + locationData.buildingLocation + "_" + locationData.dataCollector;
 
     //console.log(docName);
     var hiddenElement = document.createElement('a');
