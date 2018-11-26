@@ -101,8 +101,38 @@ var locationData = {
         {
             locationData.buildingLocation = document.getElementById("demo-building").value;
             locationData.studySpot = document.getElementById("form-studySpot").value;
-            locationData.latitude = document.getElementById("form-lat").value;
-            locationData.longitude = document.getElementById("form-lon").value;
+            if (document.getElementById("demo-building").value == "Tisch Purple Wall"){
+            	locationData.latitude = "42.406499";
+            	locationData.longitude = "-71.119126";
+            }
+            else if (document.getElementById("demo-building").value == "574 Boston Ave Private Study Room"){
+            	locationData.latitude = "42.4203707";
+            	locationData.longitude = "-71.114174";
+            }
+            else if (document.getElementById("demo-building").value == "574 Boston Ave Group Study Area"){
+            	locationData.latitude = "42.403361";
+            	locationData.longitude = "-71.113886";
+            }
+            else if (document.getElementById("demo-building").value == "Campus Center 1st Floor"){
+            	locationData.latitude = "42.405535";
+            	locationData.longitude = "-71.119889";
+            }
+            else if (document.getElementById("demo-building").value == "Campus Center 2nd Floor"){
+            	locationData.latitude = "42.405535";
+            	locationData.longitude = "-71.119889";
+            }
+            else if (document.getElementById("demo-building").value == "Campus Center 3rd Floor"){
+            	locationData.latitude = "42.405535";
+            	locationData.longitude = "-71.119889";
+            }
+            else if (document.getElementById("demo-building").value == "Tisch Group Study"){
+            	locationData.latitude = "42.405867";
+            	locationData.longitude = "-71.118733";
+            }
+            else if (document.getElementById("demo-building").value == "SEC Kindelvan"){
+            	locationData.latitude = "42.405817";
+            	locationData.longitude = "-71.116884";
+            }
 
             return(locationData);
         }
