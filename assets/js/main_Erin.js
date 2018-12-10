@@ -78,7 +78,7 @@ function startDataCollection() {
 			}
 		}, 1000);*/
 
-	myVar = setInterval(myTimer, 60000);
+	myVar = setInterval(myTimer, 1000);
 }
 
 
