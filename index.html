@@ -1,54 +1,317 @@
 <!DOCTYPE HTML>
 <!--
-	Photon by HTML5 UP
+	Astral by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 	<head>
-		<title>Photon Data Collection</title>
+		<title>Astral by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main_index.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="astral/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="astral/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
-
-		<!-- Wrapper -->
+		<!-- Wrapper-->
 			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="icon fa-cloud"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>Hi, I'm <strong>Photon</strong>, and I'm  here <br />
-								to measure and display data.</h1>
-								<p>I connect to Wio Nodes to collect light, sound, and <br />
-								distraction data for the Tufts ENP 162 Final Project. <br> Check back in December for the final project results.
-								<br><code>Group#1</code></p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="Jillian.html">Jillian</a></li>
-								<li><a href="Erin.html">Erin</a></li>
-								<li><a href="Rob.html">Rob</a></li>
-								<li><a href="Kaitlyn.html">Kaitlyn</a></li>
-							</ul>
-						</nav>
-					</header>
-				</div>
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#" class="icon fa-graduation-cap "><span>Photon</span></a>
+						<a href="#findings" class="icon fa-map-o"><span>Studyability</span></a>
+						<a href="#sound" class="icon fa-microphone"><span>Sound</span></a>
+						<a href="#light" class="icon fa-lightbulb-o"><span>Light</span></a>
+						<a href="#distraction" class="icon fa-bell"><span>Distraction</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Me -->
+							<article id="home" class="panel intro">
+								<header>
+									<h1>Hi, I'm Photon! &#x1F44B;</h1> 
+									<p>I'm here to help you determine the best study space at Tufts. Feel free to explore - I've know the best and worst places to study overall, but also have broken the information down into categories (noise, light, and distraction), just in case you prefer something different.</p>
+									<sub>Created by Erin Hsu, Jillian Howarth, Rob O’Donnell, Kaitlyn Young</sub>
+								</header>
+								<a href="#findings" class="jumplink pic">
+									<span class="arrow icon fa-chevron-right"><span>See the Findings</span></span>
+									<img src="astral/images/tufts.jpg" alt="" />
+								</a>
+							</article>
+
+							<article id="findings" class="panel">
+								<header>
+									<h1 class="center">Studiability At Tufts 👩‍🎓</h1>
+									<p>The very best and the very worst, based on sound, lighting, and distraction data.<br><br><br></p>
+									<div class="row">
+									<div class="col-6 col-6-medium col-12-small">
+										<a class="image fit"><img src="astral/images/tisch.jpg" alt=""></a>
+										<p>The best: Tisch Purple Wall</p>										
+									</div>
+									<div class="col-6 col-6-medium col-12-small">
+										<a class="image fit"><img src="astral/images/campuscenter.jpg" alt=""></a>
+										<p>The worst: Campus Center First Floor</p>										
+									</div>
+								</div>
+								</header>
+								<a class="image fit"><img src="astral/images/data_all.png" alt=""></a>
+								<p> 
+									<span class="red">🔉 Sound</span>
+									<span class="blue">💡 Light</span>
+									<span class="pink">🔔 Distraction</span>
+								</p>
+							</article>
+
+
+							<article id="sound" class="panel">
+								<header>
+									<h1>Sound Data</h1>
+									<p>I'm here to help you find the best study space at Tufts.</p>
+								</header>
+								<a class="image fit"><img src="astral/images/data_sound.png" alt=""></a>
+								<table>
+								  <tr>
+								    <th>Location</th>
+								    <th>Sound Value</th>
+								  </tr>
+								  <tr>
+								    <td>Kindlevan Café</td>
+								    <td>82.56923838</td>
+								  </tr>
+								  <tr class="highlight_good">
+								    <td>574 Private Study</td>
+								    <td>32.03278689</td>
+								  </tr>
+								  <tr>
+								    <td>574 Group Study</td>
+								    <td>38.22619048</td>
+								  </tr>
+								  <tr>
+								    <td>Tisch Group Study</td>
+								    <td>34.97387387</td>
+								  </tr>
+								  <tr>
+								    <td>Campus Center 3rd Floor</td>
+								    <td>52.47368421</td>
+								  </tr>
+								  <tr>
+								    <td>Tisch Purple Wall</td>
+								    <td>57.34090909</td>
+								  </tr>
+								  <tr>
+								    <td>Campus Center 1st Floor</td>
+								    <td>106.3520672</td>
+								  </tr>
+								  <tr class="highlight_bad">
+								    <td>Campus Center 2nd Floor</td>
+								    <td>115.4920635</td>
+								  </tr>
+								</table>
+							</article>
+
+							<article id="light" class="panel">
+								<header>
+									<h1>Light Data</h1>
+									<p>I'm here to help you find the best study space at Tufts.</p>
+								</header>
+								<a class="image fit"><img src="astral/images/data_light.png" alt=""></a>
+								<table>
+								  <tr>
+								    <th>Location</th>
+								    <th>Light Value</th>
+								  </tr>
+								  <tr>
+								    <td>Kindlevan Café</td>
+								    <td>9.622210398</td>
+								  </tr>
+								  <tr>
+								    <td>574 Private Study</td>
+								    <td>9.147093033</td>
+								  </tr>
+								  <tr class="highlight_good">
+								    <td>574 Group Study</td>
+								    <td>9.856837654</td>
+								  </tr>
+								  <tr>
+								    <td>Tisch Group Study</td>
+								    <td>9.46656</td>
+								  </tr>
+								  <tr>
+								    <td>Campus Center 3rd Floor</td>
+								    <td>9.041907018</td>
+								  </tr>
+								  <tr>
+								    <td>Tisch Purple Wall</td>
+								    <td>9.932248473</td>
+								  </tr>
+								  <tr class="highlight_bad">
+								    <td>Campus Center 1st Floor</td>
+								    <td>8.320846899</td>
+								  </tr>
+								  <tr>
+								    <td>Campus Center 2nd Floor</td>
+								    <td>8.451449735</td>
+								  </tr>
+								</table>
+							</article>
+
+							<article id="distraction" class="panel">
+								<header>
+									<h1>Distraction Data</h1>
+									<p>I'm here to help you find the best study space at Tufts.</p>
+								</header>
+								<a class="image fit"><img src="astral/images/data_distraction.png" alt=""></a>
+								<table>
+								  <tr>
+								    <th>Location</th>
+								    <th>Number of Distractions</th>
+								  </tr>
+								  <tr>
+								    <td>Kindlevan Café</td>
+								    <td>44</td>
+								  </tr>
+								  <tr>
+								    <td>574 Private Study</td>
+								    <td>25</td>
+								  </tr>
+								  <tr>
+								    <td>574 Group Study</td>
+								    <td>44</td>
+								  </tr>
+								  <tr>
+								    <td>Tisch Group Study</td>
+								    <td>25</td>
+								  </tr>
+								  <tr>
+								    <td>Campus Center 3rd Floor</td>
+								    <td>39</td>
+								  </tr>
+								  <tr class="highlight_good">
+								    <td>Tisch Purple Wall</td>
+								    <td>16</td>
+								  </tr>
+								  <tr class="highlight_bad">
+								    <td>Campus Center 1st Floor</td>
+								    <td>108</td>
+								  </tr>
+								  <tr>
+								    <td>Campus Center 2nd Floor</td>
+								    <td>40</td>
+								  </tr>
+								</table>
+							</article>
+
+
+
+
+
+
+
+
+
+
+
+
+						<!-- Work -->
+							<article id="work" class="panel">
+								<header>
+									<h2>Work</h2>
+								</header>
+								<p>
+									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
+									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+									luctus elit eget interdum.
+								</p>
+								<section>
+									<div class="row">
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic01.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic02.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic03.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic04.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic05.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic06.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic07.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic08.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic09.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic10.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic11.jpg" alt=""></a>
+										</div>
+										<div class="col-4 col-6-medium col-12-small">
+											<a href="#" class="image fit"><img src="astral/images/pic12.jpg" alt=""></a>
+										</div>
+									</div>
+								</section>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact" class="panel">
+								<header>
+									<h2>Contact Me</h2>
+								</header>
+								<form action="#" method="post">
+									<div>
+										<div class="row">
+											<div class="col-6 col-12-medium">
+												<input type="text" name="name" placeholder="Name" />
+											</div>
+											<div class="col-6 col-12-medium">
+												<input type="text" name="email" placeholder="Email" />
+											</div>
+											<div class="col-12">
+												<input type="text" name="subject" placeholder="Subject" />
+											</div>
+											<div class="col-12">
+												<textarea name="message" placeholder="Message" rows="6"></textarea>
+											</div>
+											<div class="col-12">
+												<input type="submit" value="Send Message" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="copyright">
+							<li><a href="photon.html">Collect Data</a></li>
+						</ul>
+					</div>
+
+			</div>
+
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="astral/assets/js/jquery.min.js"></script>
+			<script src="astral/assets/js/browser.min.js"></script>
+			<script src="astral/assets/js/breakpoints.min.js"></script>
+			<script src="astral/assets/js/util.js"></script>
+			<script src="astral/assets/js/main.js"></script>
 
 	</body>
 </html>
